@@ -1,12 +1,16 @@
 package com.example.demo.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 @Entity
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GenericGenerator(name="kaugen" , strategy="increment")
+    //@GeneratedValue(generator="kaugen")
+    private Integer id;
     @Column(name = "libelle")
     private String libelle;
     @Column(name = "code")
@@ -24,7 +28,7 @@ public class Product {
         this.code = code;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
